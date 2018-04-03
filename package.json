@@ -1,0 +1,30 @@
+{
+  "name": "mean-stack-with-angular2",
+  "version": "1.0.0",
+  "description": "Mean stack with angular2",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/navroop/Mean-Stack-With-Angular2.git"
+  },
+  "keywords": [
+    "Mean",
+    "Stack",
+    "Angular",
+    "2",
+    "Application"
+  ],
+  "author": "Navroop Singh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/navroop/Mean-Stack-With-Angular2/issues"
+  },
+  "homepage": "https://github.com/navroop/Mean-Stack-With-Angular2#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "mongoose": "^5.0.12"
+  }
+}
