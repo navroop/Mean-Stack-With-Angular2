@@ -1,0 +1,59 @@
+<div class="signup-content">
+    <h2>Create a new account</h2>
+    <form [formGroup]="formSignup" (submit)="createAccount()">
+        <div class="form-group">
+            <label for="signusername">Username</label>
+            <div [ngClass]="{'has-error': (formSignup.controls.username.errors && formSignup.controls.username.dirty), 'has-success': !formSignup.controls.username.errors}">
+            <input type="text" class="form-control" id="signusername" formControlName="username" >
+            <ul class="help-block">
+                <li *ngIf="formSignup.controls.username.errors?.required && formSignup.controls.username.dirty">This field is required</li>
+            </ul>
+          </div>
+          </div>
+          <div class="form-group">
+              <label for="signphonenumber">Phone Number</label>
+              <div [ngClass]="{'has-error': (formSignup.controls.phonenumber.errors && formSignup.controls.email.dirty), 'has-success': !formSignup.controls.email.errors || phoneNumberValid}">
+              <input type="text" class="form-control" id="signphonenumber" formControlName="phonenumber" (blur)="checkPhoneNumber()">
+              <ul class="help-block">
+                  <li *ngIf="formSignup.controls.email.errors?.required && formSignup.controls.email.dirty && phoneNumberValid">This field is required</li>
+                  <li *ngIf="phoneNumberMessage">{{phoneNumberMessage}}</li>
+              </ul>
+            </div>
+            </div>
+        <div class="form-group">
+          <label for="signemail">Email address</label>
+          <div [ngClass]="{'has-error': (formSignup.controls.email.errors && formSignup.controls.email.dirty), 'has-success': !formSignup.controls.email.errors}">
+            <input type="email" class="form-control" id="signemail" formControlName="email">
+            <ul class="help-block">
+                <li *ngIf="formSignup.controls.email.errors?.required && formSignup.controls.email.dirty">This field is required</li>
+                <li *ngIf="emailMessage">{{emailMessage}}</li>
+            </ul>
+          </div>
+      </div>
+        <div class="form-group">
+          <label for="signpassword">Password</label>
+          <div [ngClass]="{'has-error': (formSignup.controls.password.errors && formSignup.controls.password.dirty), 'has-success': !formSignup.controls.password.errors}">
+          <input type="password" class="form-control" id="signpassword" formControlName="password">
+          <ul class="help-block">
+              <li *ngIf="formSignup.controls.password.errors?.required && formSignup.controls.password.dirty">This field is required</li>
+          </ul>
+        </div>
+        </div>              
+        <div class="checkbox">
+            <div [ngClass]="{'has-error': (formSignup.controls.terms.errors && formSignup.controls.terms.dirty), 'has-success': !formSignup.controls.terms.errors}">
+          <label>
+            <input type="checkbox" formControlName="terms"> terms and conditions
+          </label>
+          <ul class="help-block">
+              <li *ngIf="formSignup.controls.terms.errors?.required && formSignup.controls.terms.dirty">This field is required</li>
+          </ul>
+        </div>
+        </div>
+        <button [disabled]="!formSignup.valid || processing" type="submit" class="btn btn-default">Create Account</button>
+      </form>
+      <div class="row show-hide-message">
+        <div [ngClass]="messageClass">
+          {{message}}
+        </div>
+      </div>      
+</div>
